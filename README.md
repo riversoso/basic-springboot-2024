@@ -11,7 +11,7 @@
         - Tomcat Webserver가 내장(따로 설치필요x)
         - 서포트 기능 다수 존재(개발을 쉽게 도와줌)
         - JUnit 테스트, Log4J2 로그도 모두 포함
-        - `JSP, **Thymeleaf**, Mustache` 등.. 편하게 사용가능
+        - JSP, **Thymeleaf**, Mustache 등.. 편하게 사용가능
         - DB 연동이 무지 쉽다
 
 - Spring Boot 개발환경 설정
