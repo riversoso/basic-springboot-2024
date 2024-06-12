@@ -14,10 +14,13 @@
         - JSP, **Thymeleaf**, Mustache 등.. 편하게 사용가능
         - DB 연동이 무지 쉽다
 
+    - MVC
+        <img src="https://raw.githubusercontent.com/riversoso/basic-springboot-2024/main/images/sp002.png" width="730">
+
 - Spring Boot 개발환경 설정
     - Java JDK 확인 > 17버전 이상
 	- https://jdk.java.net/archive/
-	-시스템 속성>고급>환경변수 중 JAVA_HOME 설정
+	- 시스템 속성>고급>환경변수 중 JAVA_HOME 설정
 
     - Visual Studio Code
 	- VSCodeUserSetup-x64-1.90.0.exe 아님 설치하지 말 것
@@ -73,6 +76,8 @@
         - Spring Boot Dashboard
             - Apps > Spring01 Run | Debug 중에서 하나 아이콘 클릭 서버 실행
             - 디버그로 실행해야 Hot code replace 가 동작!!
+
+            <img src="https://raw.githubusercontent.com/riversoso/basic-springboot-2024/main/images/sp001.png" width="350">
         - 브라우저 변경설정
             - 설정 (ctrl + ,) > browser > Spring > Dashboard Open With 'Internal' -> 'external'로 변경
             - Chrome 을 기본브라우저 사용 추천
