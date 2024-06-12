@@ -16,7 +16,7 @@
 
 - Spring Boot 개발환경 설정
     - Java JDK 확인 > 17버전 이상
-	-https://jdk.java.net/archive/
+	- https://jdk.java.net/archive/
 	-시스템 속성>고급>환경변수 중 JAVA_HOME 설정
 
     - Visual Studio Code
@@ -77,16 +77,21 @@
             - 설정 (ctrl + ,) > browser > Spring > Dashboard Open With 'Internal' -> 'external'로 변경
             - Chrome 을 기본브라우저 사용 추천
 
-    - Database 설정
-        - H2 DB - Spring Boot에서 손쉽게 사용가능한 Inmemory DB, Oracle, Mysql, SQLServer과 쉽게 호환
-        - Oracle - 운영시 사용할 DB
-        - MYSQL -Optional 설명할 DB
-        - Oracle PKNUSB / pknu_P@ss 로 생성
-            - 콘솔
-            ```shell
-            > sqlplus system/password
-            SQL>
-            ```
+## 2일차
+- Oracle 도커로 설치
+    - 설치되어있는 Oracle 삭제
+    -
+
+- Database 설정
+    - H2 DB - Spring Boot에서 손쉽게 사용가능한 Inmemory DB, Oracle, Mysql, SQLServer과 쉽게 호환
+    - Oracle - 운영시 사용할 DB
+    - MYSQL -Optional 설명할 DB
+    - Oracle PKNUSB / pknu_P@ss 로 생성
+        - 콘솔
+        ```shell
+        > sqlplus system/password
+        SQL>
+        ```
 
 
     - Node.js
