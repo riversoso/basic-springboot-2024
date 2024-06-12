@@ -3,6 +3,16 @@
 
 ## 1일차
 - Spring Boot 개요
+    - 개발환경, 개발 난이도를 낮추는 작업
+    - Servlet > EJB > JSP > Spring(부흥기) > Spring Boot(끝판왕!!)
+    - 장점
+        - Spring의 기술을 그대로 사용가능(마이그레이션 간단)
+        - JPA를 사용하면 ERD나 DB설계를 하지 않고도 손쉽게 DB 생성
+        - Tomcat Webserver가 내장(따로 설치필요x)
+        - 서포트 기능 다수 존재(개발을 쉽게 도와줌)
+        - JUnit 테스트, Log4J2 로그도 모두 포함
+        - `JSP, **Thymeleaf**, Mustache` 등.. 편하게 사용가능
+        - DB 연동이 무지 쉽다
 
 - Spring Boot 개발환경 설정
     - Java JDK 확인 > 17버전 이상
@@ -62,5 +72,22 @@
             - Gradle for java(코끼리 아이콘) > Tasks > Build > Build play icon(Run task) 실행
         - Spring Boot Dashboard
             - Apps > Spring01 Run | Debug 중에서 하나 아이콘 클릭 서버 실행
+            - 디버그로 실행해야 Hot code replace 가 동작!!
+        - 브라우저 변경설정
+            - 설정 (ctrl + ,) > browser > Spring > Dashboard Open With 'Internal' -> 'external'로 변경
+            - Chrome 을 기본브라우저 사용 추천
+
+    - Database 설정
+        - H2 DB - Spring Boot에서 손쉽게 사용가능한 Inmemory DB, Oracle, Mysql, SQLServer과 쉽게 호환
+        - Oracle - 운영시 사용할 DB
+        - MYSQL -Optional 설명할 DB
+        - Oracle PKNUSB / pknu_P@ss 로 생성
+            - 콘솔
+            ```shell
+            > sqlplus system/password
+            SQL>
+            ```
+
+
     - Node.js
     - React setting
