@@ -144,13 +144,21 @@
     - H2 DB - Spring Boot에서 손쉽게 사용가능한 Inmemory DB, Oracle, Mysql, SQLServer과 쉽게 호환
     - MYSQL -Optional 설명할 DB
     
-- Spring Boot + MyBatis
+- Spring Boot + MyBatis 프로젝트
     - application name : spring02
-    - Spring Boot 3.3.x 에는 MyBatis 없음
-    - Dependency 중 DB(H2, Oracle, MySQL)가 선택되어 있으면 웹서버 실행이 안됨
+    - Spring Boot 3.2.6 선택 -3.3.x 에는 MyBatis 없음
+    - Dependency
+        - Spring Boot DevTools
+        - Lombok
+        - Spring Web
+        - Thymeleaf
+        - Oracle Driver
+        - MyBatis starter
 
-    - build.gradle
+    - build.gradle 확인
     - application.properties 추가작성
+    - Dependency 중 DB(H2, Oracle, MySQL)가 선택시 application.properties에 DB설정 안되면 서버 실행 안됨
+    
     ```properties
     spring.application.name=spring02
 
@@ -177,12 +185,27 @@
     ## MyBatis 설정
     ## mapper 폴더 밑에 여러가지 폴더가 내재, 확장자는 .xml이지만 파일명은 뭐든지
     mybatis.mapper-locations=classpath:mapper/**/*.xml
-    mybatis.type-aliases-package=com.riversoso.spring02.domain
+    mybatis.type-aliases-package=com.riversoso.spring02.mapper
     ```
 
     - MyBatis 적용
         - SpringBoot 이전 resource/WEB-INF 위치에 root-context.xml에 DB, MyBatis 설정
         - SpringBoot 이후 application.properties + Config.java 로 변경
+
+    - MyBatis 개발시 순서
+        0. application.properties jdbc:oracle:thin:@localhost:11521:FREE, thin 뒤 : 이 삭제되어 있었음
+        1. Database 테이블 설정
+        2. MyBatis 설정 -> /config/MyBatisConfig.java
+        3. 테이블과 일치하는 클래스(domain, entity, dto, vo(readonly), etc...) 생성
+            - 테이블 컬럼 _는 Java클래스는 사용안함
+        4. DB에 데이터를 주고 받을 수 있는 클래스(dao, **mapper**, repository ...) 생성
+            - 쿼리를 클래스 내 작성가능, xml로 분리가능
+        5. (Model)분리했을 경우 /resources/mapper/클래스.xml 생성, 쿼리 입력
+        6. 서비스 인터페이스 /service/*Service.java, 서비스 구현 클래스 생성 /service/*ServiceImpl.java 생성
+        7. 사용자 접근하는 컨트롤러 클래스 생성 -> @Controller 변경 가능
+        8. (Controller) 경우에 따라 @SpringBootApplication 클래스에 SqlSessionFactory 빈을 생성 메서드 작성--
+        9. (View) /resource/tempates/ Thymeleaf html 생성, 작성
+
 
     - Node.js
     - React setting

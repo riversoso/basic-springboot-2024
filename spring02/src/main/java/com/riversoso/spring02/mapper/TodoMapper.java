@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.riversoso.spring02.*;
+import com.riversoso.spring02.domain.Todo;
 
 @Mapper
 public interface TodoMapper {
     
-    List <Todo> selectTodosAll();
+    List <Todo> selectTodos() throws Exception;
 
-    Todo selectTodo(int tno);
+    Todo selectTodo(int tno) throws Exception;
 }
