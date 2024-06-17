@@ -82,7 +82,7 @@
             - 설정 (ctrl + ,) > browser > Spring > Dashboard Open With 'Internal' -> 'external'로 변경
             - Chrome 을 기본브라우저 사용 추천
 
-## 2일차
+## 2,3일차
 - Oracle 도커로 설치
     - Docker는 Virtual Machine을 업그레이드 한 시스템
     - 윈도우에 서비스 내(services.msc) Oracle 관련 서비스 종료
@@ -206,6 +206,57 @@
         8. (Controller) 경우에 따라 @SpringBootApplication 클래스에 SqlSessionFactory 빈을 생성 메서드 작성--
         9. (View) /resource/tempates/ Thymeleaf html 생성, 작성
 
+## 4일차
 
-    - Node.js
-    - React setting
+- Spring Boot JPA + Oracle + Thymeleaf + React
+
+  - JPA -> DB 설계를 하지 않고 엔티티 클래스를 DB.로 자동생성 해주는 기술, Query로 만들 필요 x
+  - H2 -> Oracle, MySQL, SQLServer등 과 달리Inmemory DB, 스프링 부트 실행되면 같이 실행되는 DB
+    개발 편의성, 다른 DB로 전환 시 아주 편리, 개발하는 동안 사용을 추천
+  - Thymeleaf -> JSP의 단점 복잡한 템플릿 형태 + 스파게티 코드를 해소해주는 템플릿
+  - Bootstrap -> 웹디자인 및 CSS의 혁신! 커스터 마이징도 가능
+  - 소셜로그인 -> 구글, 카카오, 네이버 등등 소셜로 로그인 가능
+  - React -> 프론트엔드를 분리, 백엔드 서버와 프론트엔드 서버 따로 관리
+
+- SPirng Boot JPA 프로젝트 생성
+
+  - 명령팔레트로 시작, Spring Initialzr : Create a Gradle project...
+  - Spring Boot Version -> 3.2.6
+  - project language -> Java
+  - Group id -> com.springboot
+  - Arifact Id -> backboard
+  - package type -> Jar
+  - Java version -> 17
+  - Dependency
+    1. Spring Boot DevTools
+    2. Lombok
+    3. Spring Web
+    4. Thymeleaf
+    5. Oracle Driver(later)
+    6. H2 Database(later)
+    7. Data JPA(later)
+  - Spirng03 폴더 내에서 **Generate into this folder**
+
+- Spring Boot JPA 프로젝트 개발
+    1. (설정) build.gradle 디펜던시 확인
+    2. (설정) apllication.properties 기본설정 입력(포트번호, 로그색상, 자동재빌드, 로그레벨)
+    3. MVC패턴에 맞춰서 각 기능별로 폴더를 생성(controller, service, entity ...)
+    4. (설정) /controller/MainController.java 생성, 기본 메서드 구현
+    5. (설정) application.properties H2, JPA설정 추가
+    6. (설정) 웹서버 실행 http://localhost:8091/h2-console DB연결 확인
+
+    7. /entity/Board.java 생성
+        - GenerationType 타입
+            -AUTO : SpringBoot에서 자동으로 선택(x)
+            -IDENTITY : MySQL, SQLServer
+            -SEQUENCE : Oracle(!)
+        - column 이름을 createDate로 만들면 DB에 컬럼명이 create_date 로 생성
+            -컬럼명에 언더바를 안넣으려면 @column(name = "") 사용
+    8. /entity/Reply.java 생성
+    9. 두 엔티티간 @OneToMany, @ManyToOne을 설정
+    10. 웹 서버 재시작 후 h2-console에서 테이블 생성 확인
+    11. /repository/BoardRepository.java 빈 인터페이스(JpaRepository 상속) 생성
+    12. /repository/ReplyRepository.java 빈 인터페이스(JpaRepository 상속) 생성
+    13. ()application.properties ddl-auto=create -> ddl-auto=update 변경
+    14. /test/.../repository/BoardRepositoryTest.java 생성, 테스트 메서드 작성
+    15. 테스트 시작 > 웹 서버 실행 > h2-console 확인
