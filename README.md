@@ -260,3 +260,24 @@
     13. ()application.properties ddl-auto=create -> ddl-auto=update 변경
     14. /test/.../repository/BoardRepositoryTest.java 생성, 테스트 메서드 작성
     15. 테스트 시작 > 웹 서버 실행 > h2-console 확인
+
+## 5일차
+-Tip
+    - Java Test 중 OpenJDK 64-Bit Server VM warning: Sharing is
+    - Ctrl + , (설정) > Java test Config > settings.json 편집
+    ```json
+    "java.test.config": {
+        "vmArgs": [
+            "-Xshare:off"
+        ]
+    }
+    ```
+- SpringBoot JPA 프로젝트 개발 계속
+    16. jUnit 테스트로 CRUD 확인
+    17. /service/BoardService.java 생성 후 getList() 메서드 작성
+    18. /controller/BoardController.java 생성 후 /board/list 실행 할 수 있는 메서드 작성
+    19. /templates/board/list.html 생성
+        - Thymeleaf 속성
+            - th:if = "${board != null}"
+            - th:each = "board : ${boardList}"
+            - th:text = "${board.title}"
