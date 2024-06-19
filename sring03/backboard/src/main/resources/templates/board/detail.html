@@ -1,55 +1,41 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.Thymeleaf.org">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>게시판 상세</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
-    </head>
-
-    <body>
-        <div class="container my-3">
-            <!-- 게시글 영역 -->
-            <h2 th:text="${board.title}" class="border-bottom py-2"></h2>
-            <div class="card text-bg-light my-3">
-                <div class="card-body">
-                    <div th:text="${board.content}" class="card-text"></div>
-                    <div class="d-flex justify-content-end">
-                        <div class="badge text-bg-secondary p-2">
-                            <div th:text="${#temporals.format(board.createDate, 'yyyy-MM-dd HH:mm')}"></div>
-                        </div>
-                    </div>
+<html lang="ko" xmlns:th="http://www.Thymeleaf.org" layout:decorate="~{layout}">
+<div layout:fragment="main-content" class="container my-3">
+    <!-- 게시글 영역 -->
+    <h2 th:text="${board.title}" class="border-bottom py-2"></h2>
+    <div class="card text-bg-light my-3">
+        <div class="card-body">
+            <div th:text="${board.content}" class="card-text"></div>
+            <div class="d-flex justify-content-end">
+                <div class="badge text-bg-secondary p-2">
+                    <div th:text="${#temporals.format(board.createDate, 'yyyy-MM-dd HH:mm')}"></div>
                 </div>
             </div>
-
-            <!-- 댓글리스트 영역 -->
-            <h5 th:text="|${#lists.size(board.replyList)}개의 댓글이 존재합니다.|" class="border-bottom my-3 py-2"></h5>
-            <div th:each="reply : ${board.replyList}" class="card border-success shadow-sm my-3">
-                <div class = "card-body">
-                    <div th:text="${reply.content}" class="card-text"></div>
-                    <div class="d-flex justify-content-end">
-                        <div class="badge text-bg-secondary p-2">
-                            <div th:text="${#temporals.format(board.createDate, 'yyyy-MM-dd HH:mm')}"></div>
-                        </div>
-                    </div>
-                </div>
-
-                
-            </div>
-
-            <!-- 답변기능 영역 -->
-            <form th:action="@{|/reply/create/${board.bno}|}" method="post" class="my-3">
-                <textarea name="content" id="content" rows="10" class="form-control"></textarea>
-                <div class="d-flex justify-content-end mt-2">
-                    <input type="submit" value="댓글등록" class="btn btn-sm btn-primary mx-1">
-                    <a href="/board/list" class="btn btn-sm btn-secondatry">목록</a>
-                </div>
-
-            </form>
         </div>
+    </div>
 
-        <script th:src="@{/bootstrap.min.js}"></script>
-    </body>
+    <!-- 댓글리스트 영역 -->
+    <h5 th:text="|${#lists.size(board.replyList)}개의 댓글이 존재합니다.|" class="border-bottom my-3 py-2"></h5>
+    <div th:each="reply : ${board.replyList}" class="card border-success shadow-sm my-3">
+        <div class="card-body">
+            <div th:text="${reply.content}" class="card-text"></div>
+            <div class="d-flex justify-content-end">
+                <div class="badge text-bg-secondary p-2">
+                    <div th:text="${#temporals.format(board.createDate, 'yyyy-MM-dd HH:mm')}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 답변기능 영역 -->
+    <form th:action="@{|/reply/create/${board.bno}|}" th:object="${replyForm}" method="post" class="my-3">
+        <div th:replace="~{errors :: formErrorFragment}"></div>
+        <textarea th:field="*{content}" cols="30" rows="10" class="form-control"></textarea>
+        <div class="d-flex justify-content-between mt-2">
+            <a href="/board/list" class="btn btn-secondary btn-sm">목록</a>
+            <input type="submit" value="등록" class="btn btn-primary btn-sm" />
+        </div>
+    </form>
+</div>
 
 </html>

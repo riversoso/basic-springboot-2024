@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.riversoso.backboard.entity.Board;
+import com.riversoso.backboard.service.BoardService;
 
 
 @SpringBootTest
@@ -20,6 +21,17 @@ public class BoardRepositoryTests {
     // JUnit 테스트
     @Autowired
     private BoardRepository boardRepository;
+
+    @Autowired
+    private BoardService boardService;
+
+    @Test
+    void testThreeHundredBoards() {
+        for (int i = 0; i<=300; i++) {
+            this.boardService.setBoard(String.format("테스트 데이터 - [%03d]", i+1),
+                                        "별내용 없습니다.");
+        }
+    }
 
     @Test
     void testInsertBoard() {
