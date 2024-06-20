@@ -338,5 +338,27 @@
 
 ## 7일차
 - Spring Boot JPA 프로젝트 개발 계속
-    1.페이징
-  
+    0. 개념
+        ```sql
+        -- Oracle 전용(11g 이하는 이 쿼리가 동작안함)
+        select b1_0.bno,b1_0.content,b1_0.create_date,b1_0.title 
+        from board b1_0 offset 0 -- 0부터 시작해서 페이지 사이즈만큼 증가
+        rows fetch first 10 rows only -- 페이지사이즈
+        ```
+
+    1. 페이징(중요!)
+        - /repository/BoardRepository.java findAll(pageable) 인터페이스 메서드 작성
+        - /service/BoardService.java getList(page) 메서드 작성
+        - /controller/BoardController.java list() 메서드 수정
+        - /templates/board/list.html boardList -> paging 변경
+        - /templates/board/list.html 하단 페이징 버튼 추가, thymeleat 기능추가
+        - /service/BoardService.java getList() 최신순 역정렬로 변경
+        - /templates/board/list.html에 게시글 번호 수정
+
+    2. /templates/board/list.html td 뱃지태그 추가
+
+    3. 스프링시큐리티(그 다음 중요!)
+        - (설정) build.gradle 스프링 시큐리티 관련 디펜던시 추가
+        - (설정) Gradle 재빌드, 서버 실행
+        - user / 로그상 UUID (서버 실행 시 마다 변경) 입력
+        - /security/SecurityConfig.java 보안설정 파일 생성, 작성 -> 시큐리티를 다시 풀어주는 일
