@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.riversoso.backboard.entity.Board;
+import com.riversoso.backboard.entity.Member;
 import com.riversoso.backboard.repository.BoardRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -44,10 +45,14 @@ public class BoardService {
         }
     }
 
-    public void setBoard(String title, String content) {
+    // 24.06.18. setBoard 작성(riversoso)
+    // 24.06.21. Member 추가
+    public void setBoard(String title, String content, Member writer) {
         // 빌더로 생성한 객체
-        Board board = Board.builder().title(title).content(content).createDate(LocalDateTime.now()).build();
+        Board board = Board.builder().title(title).content(content)
+                        .createDate(LocalDateTime.now()).build();
 
+        board.setWriter(writer);
         this.boardRepository.save(board);
     }
 }
