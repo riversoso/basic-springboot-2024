@@ -29,6 +29,7 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
 
     Page<Board> findAll(Specification<Board> spec, Pageable pageable);
 
+    // DBeaver에서 사용할 수 있는 SQL 쿼리는 아님!
     @Query("select distinct b" +
             " from Board b" +
             " left join Reply r on r.board = b " +

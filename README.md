@@ -420,43 +420,43 @@
 
     ## 9일차
 - Spring Boot JPA 프로젝트 개발 계속
-        1. 수정, 삭제 기능
-            - /entity/Board, Reply.java 수정일자 필드 추가
-            - /templates/board/detail.html 수정, 삭제버튼 추가
-                - sec:authorize="isAuthenticated()" 없으면 500 에러
-            - /controller/BoardController.java, modify() GET 메서드 작성
-            - /templates/board/create.html form th:action을 삭제
-                - create.html 생성, 수정할 때 모두 사용
-                - get이 /board/create로 들어가면 post도 같은 URL로 실행되고, /board/modify/{bno}로 페이지를 들어가면 post도 같은 url로 실행
-            - /service/BoardService.java 수정관련 메서드 추가작성
-            - /controller/BoardController.java, modify() POST 메서드 작성
-                - html에는 BoardForm 객체 값이 들어있음. 컨트롤러에 받아서 Board객체 다시 만들어 서비스로 전달
+    1. 수정, 삭제 기능
+        - /entity/Board, Reply.java 수정일자 필드 추가
+        - /templates/board/detail.html 수정, 삭제버튼 추가
+            - sec:authorize="isAuthenticated()" 없으면 500 에러
+        - /controller/BoardController.java, modify() GET 메서드 작성
+        - /templates/board/create.html form th:action을 삭제
+            - create.html 생성, 수정할 때 모두 사용
+            - get이 /board/create로 들어가면 post도 같은 URL로 실행되고, /board/modify/{bno}로 페이지를 들어가면 post도 같은 url로 실행
+        - /service/BoardService.java 수정관련 메서드 추가작성
+        - /controller/BoardController.java, modify() POST 메서드 작성
+            - html에는 BoardForm 객체 값이 들어있음. 컨트롤러에 받아서 Board객체 다시 만들어 서비스로 전달
 
-            - /service/BoardService.java 삭제관련 메서드 추가
-            - /controller/BoardController.java delete() GET 메서드 작성
+        - /service/BoardService.java 삭제관련 메서드 추가
+        - /controller/BoardController.java delete() GET 메서드 작성
 
-            - /templates/board/detail.html 댓글 수정, 삭제버튼 추가
-            - /service/ReplyService.java 수정, 삭제관련 메서드 추가
-            - /controller/ReplyController.java modify GET, POST메서드, 삭제 GET메서드 작성
-            - /templates/reply/modify.html 생성, 작성
-            
-            - /templates/board/detail.html에 게시글, 댓글 수정날짜 표시
+        - /templates/board/detail.html 댓글 수정, 삭제버튼 추가
+        - /service/ReplyService.java 수정, 삭제관련 메서드 추가
+        - /controller/ReplyController.java modify GET, POST메서드, 삭제 GET메서드 작성
+        - /templates/reply/modify.html 생성, 작성
+        
+        - /templates/board/detail.html에 게시글, 댓글 수정날짜 표시
 
-        2. 앵커기능
-            - 추가, 수정, 삭제 시 이전 자신의 위치로 되돌아가는 기능
-            - /template/board/detail.html 댓글 마다 앵커링 추가
-            - /controller/ReplyController.java modify() Post매핑, return에 앵커링 추가
-            - /service/ReplyService.java 생성메서드 void -> Reply 변경
-            - /controller/ReplyController.java create Post메서드를 변경
+    2. 앵커기능
+        - 추가, 수정, 삭제 시 이전 자신의 위치로 되돌아가는 기능
+        - /template/board/detail.html 댓글 마다 앵커링 추가
+        - /controller/ReplyController.java modify() Post매핑, return에 앵커링 추가
+        - /service/ReplyService.java 생성메서드 void -> Reply 변경
+        - /controller/ReplyController.java create Post메서드를 변경
 
-            - /controller/BoardController.java detail() 메서드 수정
+        - /controller/BoardController.java detail() 메서드 수정
 
-        3. 검색 기능
-            - /service/BoardService.java searchBoard() 메서드 추가
-            - /repository/BoardRepository.java findAll() 메서드 추가
-            - /service/BoardService.java getList() 메서드 추가생성
-            - /controller/BoardController.java list() 메서드 추가
-            - /templates/board/list.html 검색창 추가, searchForm 폼영역 추가, **페이징영역 수정, javascript 추가**
+    3. 검색 기능
+        - /service/BoardService.java searchBoard() 메서드 추가
+        - /repository/BoardRepository.java findAll() 메서드 추가
+        - /service/BoardService.java getList() 메서드 추가생성
+        - /controller/BoardController.java list() 메서드 추가
+        - /templates/board/list.html 검색창 추가, searchForm 폼영역 추가, **페이징영역 수정, javascript 추가**
             
 ## 10일차
 - Spring Boot JPA 프로젝트 개발 계속
@@ -465,14 +465,42 @@
         - 단순 쿼리가 아니라서 JPARepository가 자동으로 만들어 줄 수 없을 때 사용
         - DB의 표준쿼리와 차이가 있음(Java Entity와 일치)
         - /repository/BoardRepository.java, findAllByKeyword() 메서드 추가
+        - JPA Query @Query("")에 작성
+        - /service/BoardService.java getList() 수정
 
         4. 마크다운 적용
-            - 마크다운 뷰, 마크다운 에디터
+            - Wysiwyg 에디터 - CKEditor(https://ckeditor.com/), TinyMCR
+            - simplemde(https://simplemde.com/) 깃헙에 CDN 링크복사 layout.html 링크추가
+            - create.html textarea id content를 simplemde로 변환하는 js 추가
+            - detail.html textarea content simplemde js 추가
 
+            - (설정) build.gradle 마크다운 뷰어 디펜던시 추가
+            - /common/CommonUtil.java 생성
+            - /templates/board/detail.html 마크다운 뷰어 적용
+
+            <img src="https://raw.githubusercontent.com/riversoso/basic-springboot-2024/main/images/sp009.png" width="730">
+
+            <img src="https://raw.githubusercontent.com/riversoso/basic-springboot-2024/main/images/sp010.png" width="730">
+
+
+        3. 카테고리 추가
+            - /entity/Category.java 클래스 추가
+            - /repository/CategoryRepository.java 인터페이스 추가
+            - /service/CategoryService.java 추가
+            - /service/BoardService.java 조회조건에 카테고리 추가 수정
+            - 카테고리를 자유게시판, 질문응답게시판 분리
+            - /templates.layout.html navbar.html 추가기입
+            - /comtroller/BoardController.java Getmapping 메서드에 카테고리를 추가
+
+        4. 조회수 표시
+            - entity.Board.java 조회수 필드 추가
+            - /service/BoardService.java 메서드 추가
+            - /controller/BoardController.java detail() 메서드 수정
+            - /templates/board/list.html 조회수 컬럼 추가
 
         - 마크다운 적용, 마크다운에디터 추가
         - 검색기능
-        - 카테고리 추가(게시판, QnA, 공지사항)
+        - 카테고리 추가(게시판, QnA, 공지사항)                                             
         - 비밀번호 찾기, 비밀번호 변경
         - 조회수 추가
 

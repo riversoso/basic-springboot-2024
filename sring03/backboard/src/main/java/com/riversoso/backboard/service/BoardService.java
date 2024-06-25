@@ -52,8 +52,9 @@ public class BoardService {
         sorts.add(Sort.Order.desc("createDate"));
         Pageable pageable = PageRequest.of(page, 10, Sort.by(sorts)); // pageSize를 동적으로도 변경할 수 있음.나중에...
 
-        Specification<Board> spec = searchBoard(keyword);
-        return this.boardRepository.findAll(spec, pageable);
+        // Specification<Board> spec = searchBoard(keyword);
+        // return this.boardRepository.findAll(spec, pageable); // Specification 인터페이스로 쿼리 생성로직 만들어서
+        return this.boardRepository.findAllByKeyWord(keyword, pageable);
     }
 
     public Board getBoard(Long bno) {
