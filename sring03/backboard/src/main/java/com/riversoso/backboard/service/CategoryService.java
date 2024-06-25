@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class CategoryService {
     
-    private final CategoryRepository categoryRepository; //bean으로 생성
+    private final CategoryRepository categoryRepository; // bean으로 생성
 
     // 카테고리를 생성하는 메서드
     public Category setCategory(String title) {
@@ -29,7 +29,7 @@ public class CategoryService {
 
     // free, qna
     // 카테고리 가져오는 메서드
-    public Category getCategory(String title){
+    public Category getCategory(String title) {
         Optional<Category> cate = this.categoryRepository.findByTitle(title);
 
         if (cate.isEmpty()) { // free나 qna 타이틀의 카테고리 데이터가 없으며

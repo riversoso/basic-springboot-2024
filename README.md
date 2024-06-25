@@ -468,49 +468,49 @@
         - JPA Query @Query("")에 작성
         - /service/BoardService.java getList() 수정
 
-        4. 마크다운 적용
-            - Wysiwyg 에디터 - CKEditor(https://ckeditor.com/), TinyMCR
-            - simplemde(https://simplemde.com/) 깃헙에 CDN 링크복사 layout.html 링크추가
-            - create.html textarea id content를 simplemde로 변환하는 js 추가
-            - detail.html textarea content simplemde js 추가
+    2. 마크다운 적용
+        - Wysiwyg 에디터 - CKEditor(https://ckeditor.com/), TinyMCR
+        - simplemde(https://simplemde.com/) 깃헙에 CDN 링크복사 layout.html 링크추가
+        - create.html textarea id content를 simplemde로 변환하는 js 추가
+        - detail.html textarea content simplemde js 추가
 
-            - (설정) build.gradle 마크다운 뷰어 디펜던시 추가
-            - /common/CommonUtil.java 생성
-            - /templates/board/detail.html 마크다운 뷰어 적용
+        - (설정) build.gradle 마크다운 뷰어 디펜던시 추가
+        - /common/CommonUtil.java 생성
+        - /templates/board/detail.html 마크다운 뷰어 적용
 
-    <img src="https://raw.githubusercontent.com/riversoso/basic-springboot-2024/main/images/sp009.png" width="730">
+        <img src="https://raw.githubusercontent.com/riversoso/basic-springboot-2024/main/images/sp009.png" width="730">
 
-    <img src="https://raw.githubusercontent.com/riversoso/basic-springboot-2024/main/images/sp010.png" width="730">
+        <img src="https://raw.githubusercontent.com/riversoso/basic-springboot-2024/main/images/sp010.png" width="730">
 
 
-        3. 카테고리 추가
-            - /entity/Category.java 클래스 추가
-            - /repository/CategoryRepository.java 인터페이스 추가
-            - /service/CategoryService.java 추가
-            - /service/BoardService.java 조회조건에 카테고리 추가 수정
-            - 카테고리를 자유게시판, 질문응답게시판 분리
-            - /templates.layout.html navbar.html 추가기입
-            - /comtroller/BoardController.java Getmapping 메서드에 카테고리를 추가
+    3. 카테고리 추가
+		- /entity/Category.java 클래스 생성
+		- /repository/CategoryRepository.java 인터페이스 생성
+		- /service/CategoryService.java 생성
+		- /entity/Board.java에 category 속성을 추가
+		- /service/BoardService.java getList(), searchBoard(), **setBoard()** 추가생성
+		- 카테고리를 자유게시판, 질문응답게시판 분리
+		- /templates/layout.html 사이드바 태그 추가
+		- /controller/BoardController.java CategoryService, GetMapping 메서드에 카테고리 매개변수 추가
+		- /templates/list.html 카테고리 변수 추가
+		- /controller/BoardController.java create() GET, POST메서드에 category추가!		
 
-        4. 조회수 표시
-            - entity.Board.java 조회수 필드 추가
-            - /service/BoardService.java 메서드 추가
-            - /controller/BoardController.java detail() 메서드 수정
-            - /templates/board/list.html 조회수 컬럼 추가
+	4. 조회수 표시
+		- /entity/Board.java 조회수 필드 추가
+		- /service/BoardService.java 메서드 추가
+		- /controller/BoardController.java detail()메서드 수정
+		- /templates/board/list.html 조회수 컬럼 추가
+	
+	- 비밀번호 찾기, 비밀번호 변경
+	- 조회수 추가
 
-        - 마크다운 적용, 마크다운에디터 추가
-        - 검색기능
-        - 카테고리 추가(게시판, QnA, 공지사항)                                             
-        - 비밀번호 찾기, 비밀번호 변경
-        - 조회수 추가
+	- 리액트 적용
+	- 리액트로 프론트엔드 설정
+	- thymeleaf - 리액트로 변경
+	- Spring boot RestAPI 작업
 
-        - 리액트 적용
-        - 리액트로 프론트엔드 설정
-        - thymeleaf - 리액트로 변경
-        - Spring boot RestAPI 작업
-
-        - AWS 라이트세일 가입
-        - 서버 접속 프로그램 설정
-        - 웹서버 배포
-        - 8080 -> 80 서버
-        - http -> https 변경	
+	- AWS 라이트세일 가입
+	- 서버 접속 프로그램 설정
+	- 웹서버 배포
+	- 8080 -> 80 서버
+	- http -> https 변경	

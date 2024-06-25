@@ -7,14 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.riversoso.backboard.entity.Board;
-import com.riversoso.backboard.entity.Member;
-import com.riversoso.backboard.entity.Reply;
-import com.riversoso.backboard.service.BoardService;
-import com.riversoso.backboard.service.MemberService;
-import com.riversoso.backboard.service.ReplyService;
-import com.riversoso.backboard.validation.ReplyForm;
-
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -25,6 +17,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.security.Principal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.server.ResponseStatusException;
+
+import com.riversoso.backboard.entity.Board;
+import com.riversoso.backboard.entity.Member;
+import com.riversoso.backboard.entity.Reply;
+import com.riversoso.backboard.service.BoardService;
+import com.riversoso.backboard.service.MemberService;
+import com.riversoso.backboard.service.ReplyService;
+import com.riversoso.backboard.validation.ReplyForm;
 
 
 @RequestMapping("/reply")

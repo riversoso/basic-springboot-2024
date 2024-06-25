@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.riversoso.backboard.entity.Board;
+
 import java.util.List;
 import java.util.Optional;
 // 페이징을 위한 네임스페이스 
@@ -30,14 +31,11 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
     Page<Board> findAll(Specification<Board> spec, Pageable pageable);
 
     // DBeaver에서 사용할 수 있는 SQL 쿼리는 아님!
-    @Query("select distinct b" +
-            " from Board b" +
-            " left join Reply r on r.board = b " +
-            " where b.title like %:kw% " +
-            "   or b.content like %:kw% " +
-            "   or r.content like %:kw% ")
-
+    @Query("select distinct b " +
+           "  from Board b " +
+           "  left join Reply r on r.board = b " +
+           " where b.title like %:kw% " +
+           "    or b.content like %:kw% " +
+           "    or r.content like %:kw% ")
     Page<Board> findAllByKeyword(@Param("kw") String kw, Pageable pageable);
-
-
 }

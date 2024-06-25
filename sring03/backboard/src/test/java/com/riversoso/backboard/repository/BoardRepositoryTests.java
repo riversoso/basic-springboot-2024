@@ -4,8 +4,8 @@ package com.riversoso.backboard.repository;
 // import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-// import com.riversoso.backboard.entity.Board;
-// import com.riversoso.backboard.service.BoardService;
+// import com.hugo83.backboard.entity.Board;
+// import com.hugo83.backboard.service.BoardService;
 
 // import static org.junit.jupiter.api.Assertions.assertEquals;
 // import static org.junit.jupiter.api.Assertions.assertTrue;

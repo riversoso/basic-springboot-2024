@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public enum MemberRole {
     // 이렇게 쓰는 방법
-    // ADMIN("관리자","ROLE_ADMIN"), USER("사용자","ROLE_USER");
+    // ADMIN("관리자", "ROLE_ADMIN"), USER("사용자", "ROLE_USER");
 
     // MemberRole(String key, String value) {
     //     this.key = key;
