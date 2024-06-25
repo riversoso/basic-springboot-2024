@@ -35,10 +35,9 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
             " left join Reply r on r.board = b " +
             " where b.title like %:kw% " +
             "   or b.content like %:kw% " +
-            "   or r.content like %:kw% " 
-            )
+            "   or r.content like %:kw% ")
 
-    Page<Board> findAllByKeyWord(@Param("kw") String kw, Pageable pageable);
+    Page<Board> findAllByKeyword(@Param("kw") String kw, Pageable pageable);
 
 
 }
