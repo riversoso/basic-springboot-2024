@@ -478,9 +478,9 @@
             - /common/CommonUtil.java 생성
             - /templates/board/detail.html 마크다운 뷰어 적용
 
-            <img src="https://raw.githubusercontent.com/riversoso/basic-springboot-2024/main/images/sp009.png" width="730">
+    <img src="https://raw.githubusercontent.com/riversoso/basic-springboot-2024/main/images/sp009.png" width="730">
 
-            <img src="https://raw.githubusercontent.com/riversoso/basic-springboot-2024/main/images/sp010.png" width="730">
+    <img src="https://raw.githubusercontent.com/riversoso/basic-springboot-2024/main/images/sp010.png" width="730">
 
 
         3. 카테고리 추가
