@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import com.riversoso.backboard.entity.Member;
 
 @Repository
-public interface MemberRepository extends JpaRepository<Member,Long> {
-    Optional<Member> findByUsername(String username);
+public interface MemberRepository extends JpaRepository<Member, Long> {
 
-    OPtional<Member> findByEmail(String email);
+    Optional<Member> findByUsername(String username);
+    Optional<Member> findByEmail(String email);
 }

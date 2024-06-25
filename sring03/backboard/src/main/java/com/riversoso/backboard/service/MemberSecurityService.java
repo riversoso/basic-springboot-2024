@@ -16,13 +16,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
 public class MemberSecurityService implements UserDetailsService {
-    
+
     private final MemberRepository memberRepository;
 
     @Override
@@ -40,8 +39,7 @@ public class MemberSecurityService implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority(MemberRole.USER.getValue()));
         }
 
-        return new User(member.getUsername(),member.getPassword(),authorities);
-
+        return new User(member.getUsername(), member.getPassword(), authorities);
     }
     
 }
