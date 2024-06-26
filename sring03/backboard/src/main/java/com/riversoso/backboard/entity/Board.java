@@ -2,6 +2,7 @@ package com.riversoso.backboard.entity;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.ColumnDefault;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -47,6 +48,10 @@ public class Board {
     @LastModifiedDate
     @Column(name = "modifyDate")
     private LocalDateTime modifyDate; // 24.06.24 수정일 추가
+
+    // @ColumnDefault("0") // sss 
+    // @Column(columnDefinition = "integer default 0")
+    private Integer hit; // 24.06.26 조회수 추가
 
     // 사용자가 여러개의 게시글을 작성할 수 있다. 다대일 설정
     @ManyToOne
