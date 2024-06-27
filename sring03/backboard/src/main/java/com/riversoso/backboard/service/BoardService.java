@@ -165,6 +165,7 @@ public class BoardService {
             Board board = oboard.get();
             // board.setHit(board.getHit() + 1); // !!!!! 이대로 쓰면 예외발생
             board.setHit(Optional.ofNullable(board.getHit()).orElse(0) +1);
+            
             return board;
         } else {
             throw new NotFoundException("Board not found!");
