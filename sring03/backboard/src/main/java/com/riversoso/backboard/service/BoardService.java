@@ -79,7 +79,7 @@ public class BoardService {
         }
     }
 
-    // 24.06.18. setBoard 작성(hugo83)
+    // 24.06.18. setBoard 작성(riversoso)
     // 24.06.21. Member 추가
     public void setBoard(String title, String content, Member writer) {
         // 빌더로 생성한 객체

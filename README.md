@@ -637,15 +637,52 @@
 
 ## 13일차
 - Spring Boot JPA 프로젝트 개발 계속
+    0. 메일작업 중 생긴 오류
+        - 로그인하고 글 적으려면 500에러 발생
+        - CSRF 토큰 때문에 발생하는 오류
+        - /board/create.html, /reply/modify.html에 있는 csrf관련 태그 주석처리!
+
     1. 비밀번호 초기화(계속)
+        - /templates/member/login.html 비밀번호 초기화 버튼
+        - /controller/MemberController.java reset() 메서드 추가
+        - /templates/member/reset.html 생성 -> register.html 가져와서 수정
+        - /controller/MailController.java 생성, /mail/reset-mail GET매핑 메서드 생성
+        - /service/MemberService.java에 메일주소로 검색하는 메서드 getMemberByEmail() 추가
+        - /service/MailService.java에 메일전송 메서드 생성, 수정
+            - UUID를 생성해서 메일로 전송하는 기능 추가
+        - /entity/Reset.java 생성
+        - /repository/ResetRepository.java 인터페이스 생성, findByUuid() 추가
+        - /service/ResetService.java 생성
+        - /service/MailService/java에 ResetService 객체 생성, 메일 전송 후 setReset() 사용
+        - /controller/MemberController.java, /member/reset-password Get 메서드 작성
+        - /templates/member/newpassword.html 생성
+        - /controller/MemberController.java, /member/reset-password Post 메서드 작성
+        - /service/MemberService.java에 setMember() 메서드 추가
+
+        - 이메일 화면 수정
+        - /member/reset-password Get메서드 작성
+        - /html ....
+        <!-- 
         - 로그인 화면에서 비밀번호 초기화 버튼, AJAX로 RestAPI로 메일보내기
-        - 메일에 링크 클릭
+        - 메일에 링크 클릭 -->
         - http://localhost:8080/user/resetpassword (회원가입과 유사하게 개발)
 
         - 비밀번호 초기화 화면으로 이동
         - 비밀번호, 비밀번호 확인 입력
+        
+        <img src="https://raw.githubusercontent.com/riversoso/basic-springboot-2024/main/images/sp012.png" width="730">
 
-    2. 소셜 로그인 - 구글
+        <img src="https://raw.githubusercontent.com/riversoso/basic-springboot-2024/main/images/sp013.png" width="730">
+
+
+## 14일차
+- Spring Boot JPA 프로젝트 개발 계속
+    1. frontboard(React)
+
+    2. backboard(Rest API)
+
+
+    3. 소셜 로그인 - 구글
         - http://console.cloud.google.com/ 구글 클라우드 콘솔
         - 프로젝트 생성
         - OAuth 동의화면 설정
