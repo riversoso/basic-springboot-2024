@@ -636,6 +636,29 @@
 
 
 ## 13일차
+- 리액트 개요
+    - 서버사이드 -> 백엔드
+    - 클라이언트사이드 -> 프론트엔드
+    - 프론트엔드 : html+css+js(html, jsp, aspx, php, ...)
+    - js만 가지고 프론트엔드를 만들어보자 -> 리액트
+    - css는 있어야 하는구나
+    - 페이스북이 자기 웹페이지 프론트를 좀 더 개선해보고자 개발 시작
+    - 리액트는 기본적으로 SPA(Single Page Application)을 목적으로
+    - node.js 서버사이드 js를 사용해서 서버를 동작
+    - 패키지 매니저 종류 : npm, chocolatey, yarn, ...(본인이 필요한 것만 공부)
+
+- 리액트 개발순서
+    1. node.js 설치
+        - https://nodejs.org/en, Download Node.js(LTS) 클릭
+        - 설치 후 콘솔에서 node --version 으로 확인. 현재 v20.15.0
+    2.  리액트 패키지 설치
+        - > npm uninstall -g create-react-app
+        - > npm install -g create-react-app
+    
+    3. 리액트 프로젝트를 초기화
+        - VS Code에서 터미널 오픈
+        - > npx create-react-app basic-app
+
 - Spring Boot JPA 프로젝트 개발 계속
     0. 메일작업 중 생긴 오류
         - 로그인하고 글 적으려면 500에러 발생
