@@ -791,7 +791,7 @@
         - props 속성
         - props.속성이름.key이름
 
-        <img src="https://raw.githubusercontent.com/riversoso/basic-springboot-2024/main/images/react001.png" width="730">
+        <img src="https://raw.githubusercontent.com/riversoso/basic-springboot-2024/main/images/react002.png" width="730">
 
     9. 화면 업데이트
         - useState : 앱 화면의 상태를 기억하고, 사용하기 위한
