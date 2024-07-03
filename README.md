@@ -868,25 +868,33 @@
 
 ## 16일차
 - Spring Boot React 연동 프로젝트 개발 계속
-    1. 상세화면
-    2. 입력화면
-    3. 페이징
-    4. 로그인
+    1. Spring Boot 서버가 실행되지 않을 때
+        - 프론트 서버부터 실행하면 Uncaught runtime error. 발생
+        - anxios request가 예외 발생 try - catch로 wrapping 해줘야 함
+    2. 페이징
+        - (Backend) /PagingDto.java 생성
+        - (Backend) /dto/Header.java 생성
+        - RestBoardController.java list() 수정 List<BoardDto> -> Header<List<BoardDto>>로 형 변환
+        - (Front) /BoardList.js 변수부분 수정
+        - (Front) /common/CommonFunc.js 생성 - 작성일을 수정함수 formatDate() 작성
+        - /BoardList.js 날짜부분에 formatDate() 적용
+        - /BoardList.js 댓글 갯수 표시
+        - (Back) /dto/BoardDto.java 게시글 번호 변수 추가
+        - RestBoardController.java 게시글 번호 계산로직 추가
+        - (Front) / BoardList.js bno를 num으로 변경
 
-## 계속 
-- Spring Boot JPA 프로젝트
-    1. 남은 것
-    - 8080 -> 80 서버
-	- http -> https 변경	
+    3. 상세화면
+        - (Back) RestBoardController.java detail() 메서드 생성
+        - (Front) /BoardList.js 제목 수정
+        - /routes/BoardDetail.js 생성
 
-    - 파일업로드 - AWS S3 체크
+## 17일차
+- Spring Boot React 연동 프로젝트 개발 계속
 
-	- 리액트 적용
-	- 리액트로 프론트엔드 설정
-	- thymeleaf - 리액트로 변경
-	- Spring boot RestAPI 작업
+    1. 로그인
 
-	- AWS 라이트세일 가입
-	- 서버 접속 프로그램 설정
-	- 웹서버 배포
-	
+    2. 상세화면 완료
+    
+    3. 입력화면
+
+
